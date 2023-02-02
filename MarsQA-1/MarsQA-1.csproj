@@ -170,11 +170,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Feature\Login.cs" />
+    <Compile Include="Feature\SellerFullNameStepDefinitions.cs" />
+    <Compile Include="Feature\SellerAvailabilityStepDefinitions.cs" />
+    <Compile Include="Feature\SellerDescriptionStepDefinitions.cs" />
+    <Compile Include="Feature\SellerEarnTargetStepDefinitions.cs" />
+    <Compile Include="Feature\SellerHoursStepDefinitions.cs" />
+    <Compile Include="SellerLanguagesStepDefinitions.cs" />
     <Compile Include="SpecflowPages\Helpers\CommonMethods.cs" />
     <Compile Include="SpecflowPages\Helpers\ConstantHelpers.cs" />
     <Compile Include="SpecflowPages\Helpers\Driver.cs" />
     <Compile Include="SpecflowPages\Helpers\ExcelLibHelper.cs" />
-    <Compile Include="SpecflowPages\Pages\MyLogin.cs" />
+    <Compile Include="SpecflowPages\Pages\SellerFullName.cs" />
+    <Compile Include="SpecflowPages\Pages\SellerLanguages.cs" />
     <Compile Include="SpecflowPages\Pages\SignIn.cs" />
     <Compile Include="SpecflowPages\Utils\Start.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -182,6 +189,15 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Feature\Login.feature" />
+    <None Include="Feature\SellerAvailability.feature" />
+    <None Include="Feature\SellerCertifications.feature" />
+    <None Include="Feature\SellerDescription.feature" />
+    <None Include="Feature\SellerEarnTarget.feature" />
+    <None Include="Feature\SellerEducation.feature" />
+    <None Include="Feature\SellerFullName.feature" />
+    <None Include="Feature\SellerHours.feature" />
+    <None Include="Feature\SellerLanguages.feature" />
+    <None Include="Feature\SellerSkills.feature" />
     <None Include="SpecflowTests\Data\Data.xlsx" />
     <None Include="packages.config" />
     <None Include="SpecflowTests\Data\Mars.xlsx" />

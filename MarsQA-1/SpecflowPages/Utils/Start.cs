@@ -28,8 +28,8 @@ namespace MarsQA_1.Utils
 
         [AfterScenario]
         public void TearDown()
-        {
-
+        {            
+            
             /*
             // Screenshot
             string img = SaveScreenShotClass.SaveScreenshot(Driver.driver, "Report");
@@ -43,7 +43,6 @@ namespace MarsQA_1.Utils
             // calling Flush writes everything to the log file (Reports)
             CommonMethods.Extent.Flush();
            */
-
         }
     }
 }
