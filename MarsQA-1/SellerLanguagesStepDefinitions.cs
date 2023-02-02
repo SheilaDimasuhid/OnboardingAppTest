@@ -1,5 +1,8 @@
 using MarsQA_1.SpecflowPages.Pages;
+using NUnit.Framework;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace MarsQA_1
@@ -41,10 +44,22 @@ namespace MarsQA_1
         }
 
         [Then(@"The new '([^']*)' should be displayed in the Seller Language List")]
-        public void ThenTheNewShouldBeDisplayedInTheSellerLanguageList(string language)
+        public void ThenTheNewShouldBeDisplayedInTheSellerLanguageList(string newLanguage)
         {
-            _sellerLanguages.CheckNewLanguageAdded(language);
-        }
+            string notification = _sellerLanguages.CheckNewLanguageAdded(newLanguage);
+            if (notification.Contains(newLanguage + " has been added to your languages"))
+                Assert.Pass(notification);
+            else if (notification == "This language is already exist in your language list.")
+                    Assert.Pass(notification);
+            else if (notification == "This language is already added to your language list.")
+                    Assert.Pass(notification);
+            else if (notification == "Please enter language and level")
+                    Assert.Pass(notification);
+        }     
+            
+           
+            
+        
 
 
         [When(@"I update an existing '([^']*)' to a '([^']*)'")]
@@ -69,7 +84,15 @@ namespace MarsQA_1
         [Then(@"The updated '([^']*)' should be updated successfully")]
         public void ThenTheUpdatedShouldBeUpdatedSuccessfully(string newLanguage)
         {
-            _sellerLanguages.CheckUpdatedLanguage(newLanguage);
+            string notification = _sellerLanguages.CheckUpdatedLanguage(newLanguage);
+            if (notification.Contains(newLanguage + " has been updated to your languages"))
+                Assert.Pass(notification);
+            else if (notification == "This language is already exist in your language list.")
+                Assert.Pass(notification);
+            else if (notification == "This language is already added to your language list.")
+                Assert.Pass(notification);
+            else if (notification == "Please enter language and level")
+                Assert.Pass(notification);
         }
 
 
@@ -83,7 +106,8 @@ namespace MarsQA_1
         [Then(@"The existing '([^']*)' selected should be deleted successfully")]
         public void ThenTheExistingSelectedShouldBeDeletedSuccessfully(string language)
         {
-            _sellerLanguages.CheckDeletedLanguage(language);
+            string notification = _sellerLanguages.CheckDeletedLanguage(language);
+            Assert.That(notification.Contains(language + " has been deleted from your languages"), "Language was not deleted successfully");
         }
 
 

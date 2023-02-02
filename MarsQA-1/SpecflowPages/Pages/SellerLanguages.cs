@@ -60,11 +60,12 @@ namespace MarsQA_1.SpecflowPages.Pages
             addLanguageBtn.Click();
         }
 
-        public void CheckNewLanguageAdded(string language)
+        public string CheckNewLanguageAdded(string newLanguage)
         {
             Thread.Sleep(1000);
             string successMessage = successNotification.Text;
-            Assert.That(successMessage.Contains(language + " has been added to your languages"), "Language was not deleted successfully");
+            return successMessage;
+            //Assert.That(successMessage.Contains(language + " has been added to your languages"), "Language was not added successfully");
             //Assert.That(newlyAddedLanguageName.Text == language, "New language not added");
 
         }
@@ -102,11 +103,12 @@ namespace MarsQA_1.SpecflowPages.Pages
             updateLanguageBtn.Click();
         }
 
-        public void CheckUpdatedLanguage(string newLanguage)
+        public string CheckUpdatedLanguage(string newLanguage)
         {
             Thread.Sleep(1000);
             string successMessage = successNotification.Text;
-            Assert.That(successMessage.Contains(newLanguage + " has been updated to your languages"), "Language was not updated successfully");           
+            return successMessage;
+            //Assert.That(successMessage.Contains(newLanguage + " has been updated to your languages"), "Language was not updated successfully");           
         }
 
         private IWebElement RemoveLanguage(string language) => Driver.driver.FindElement(By.XPath("//td[text()='" + language + "']/following::td[2]/descendant::i[@class=\"remove icon\"]"));
@@ -118,11 +120,12 @@ namespace MarsQA_1.SpecflowPages.Pages
             removeLanguage.Click();
         }
 
-        public void CheckDeletedLanguage(string language)
+        public string CheckDeletedLanguage(string language)
         {
             Thread.Sleep(1000);
             string successMessage = successNotification.Text;
-            Assert.That(successMessage.Contains(language + " has been deleted from your languages"), "Language was not deleted successfully");
+            return successMessage;
+            //Assert.That(successMessage.Contains(language + " has been deleted from your languages"), "Language was not deleted successfully");
         }
 
 

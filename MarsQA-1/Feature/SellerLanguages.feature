@@ -30,6 +30,6 @@ Scenario: Delete an existing Language on my Profile Page
 	When I delete an existing '<Language>'
 	Then The existing '<Language>' selected should be deleted successfully
 	Examples:
-	| Language   |
-	| Bohol      |
-	| Hiligaynon |
+	| Language |
+	| Tagalog  |
+	| Ilocano  |

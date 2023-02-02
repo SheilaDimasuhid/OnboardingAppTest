@@ -164,8 +164,8 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Delete an existing Language on my Profile Page")]
-        [NUnit.Framework.TestCaseAttribute("Bohol", null)]
-        [NUnit.Framework.TestCaseAttribute("Hiligaynon", null)]
+        [NUnit.Framework.TestCaseAttribute("Tagalog", null)]
+        [NUnit.Framework.TestCaseAttribute("Ilocano", null)]
         public void DeleteAnExistingLanguageOnMyProfilePage(string language, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

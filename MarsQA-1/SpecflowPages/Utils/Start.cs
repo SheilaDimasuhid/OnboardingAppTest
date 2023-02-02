@@ -29,7 +29,7 @@ namespace MarsQA_1.Utils
         [AfterScenario]
         public void TearDown()
         {            
-            
+            Close();
             /*
             // Screenshot
             string img = SaveScreenShotClass.SaveScreenshot(Driver.driver, "Report");
