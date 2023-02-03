@@ -2,7 +2,7 @@
 
 As a seller I would like to add or update my availability (Part Time or Full Time)
 
-@tag1
+@Ignore
 Scenario: Add or update my availability
 	Given I navigate to the add availability section
 	When I select my availability

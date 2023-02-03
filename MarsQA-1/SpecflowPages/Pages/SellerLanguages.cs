@@ -1,4 +1,5 @@
 ﻿using MarsQA_1.Helpers;
+using MarsQA_1.SpecflowPages.Helpers;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -13,7 +14,8 @@ namespace MarsQA_1.SpecflowPages.Pages
 {
     public class SellerLanguages
     {
-        private IWebElement languageTab => Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]"));        private IWebElement addNewLanguageBtn => Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div"));
+        private IWebElement languageTab => Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]"));        
+        private IWebElement addNewLanguageBtn => Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div"));
         private IWebElement languageName => Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[1]/input"));
         private IWebElement levelDropdownBtn => Driver.driver.FindElement(By.XPath("//select[@name='level']"));
         private IWebElement addLanguageBtn => Driver.driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[3]/input[1]"));
@@ -30,43 +32,41 @@ namespace MarsQA_1.SpecflowPages.Pages
             
         public void ClickLanguageTab()
         {
-            Thread.Sleep(1000);
+            Wait.WaitToBeVisible(Driver.driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]", 3);
             languageTab.Click();
         }
 
         public void CLickAddNewLanguageBtn()
         {
-            Thread.Sleep(1000);
+            Wait.WaitToBeVisible(Driver.driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div", 3);
             addNewLanguageBtn.Click();           
         }
 
         public void SetLanguageName(string langName)
         {
-            Thread.Sleep(2000);
+            Wait.WaitToBeVisible(Driver.driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[1]/input", 3);
             languageName.Clear();
             languageName.SendKeys(langName);
         }
 
         public void SetLevel(string level) 
         {
-            Thread.Sleep(1000);
+            Wait.WaitToBeVisible(Driver.driver, "XPath", "//select[@name='level']", 3);
             SelectElement selectedLevel = new SelectElement(levelDropdownBtn);
             selectedLevel.SelectByValue(level);
         }
 
         public void AddNewLang()
         {
-            Thread.Sleep(1000);
+            Wait.WaitToBeVisible(Driver.driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[3]/input[1]", 3);
             addLanguageBtn.Click();
         }
 
         public string CheckNewLanguageAdded(string newLanguage)
         {
-            Thread.Sleep(1000);
+            Wait.WaitToBeVisible(Driver.driver, "XPath", "//div[@class=\"ns-box-inner\"]", 3);
             string successMessage = successNotification.Text;
-            return successMessage;
-            //Assert.That(successMessage.Contains(language + " has been added to your languages"), "Language was not added successfully");
-            //Assert.That(newlyAddedLanguageName.Text == language, "New language not added");
+            return successMessage;         
 
         }
 
@@ -77,20 +77,18 @@ namespace MarsQA_1.SpecflowPages.Pages
         
         public void EditExistingLanguage(string currentLanguage, string newLanguage)
         {
-            Thread.Sleep(1000);
+            Driver.driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             var editLanguage = EditLanguage(currentLanguage);
             editLanguage.Click();
-            Thread.Sleep(2000);
             var editLanguageName = EditLanguageName(currentLanguage);
             editLanguageName.Clear();
             editLanguageName.SendKeys(newLanguage);            
-        }
-          
+        }       
         
 
         public void SetNewLevel(string currentLanguage, string newLevel)
         {
-            Thread.Sleep(1000);
+            Driver.driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             var editLevelDropdownBtn = EditLevelDropdownBtn(currentLanguage);
             SelectElement selectedLevel = new SelectElement(editLevelDropdownBtn);
             selectedLevel.SelectByValue(newLevel);
@@ -98,34 +96,34 @@ namespace MarsQA_1.SpecflowPages.Pages
 
         public void CLickUpdateLanguageBtn(string currentLanguage)
         {
+            Driver.driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             var updateLanguageBtn = UpdateLanguageBtn(currentLanguage);
-            Thread.Sleep(1000);
             updateLanguageBtn.Click();
         }
 
         public string CheckUpdatedLanguage(string newLanguage)
         {
-            Thread.Sleep(1000);
+            Wait.WaitToBeVisible(Driver.driver, "XPath", "//div[@class=\"ns-box-inner\"]", 4);
             string successMessage = successNotification.Text;
             return successMessage;
-            //Assert.That(successMessage.Contains(newLanguage + " has been updated to your languages"), "Language was not updated successfully");           
+            
         }
 
         private IWebElement RemoveLanguage(string language) => Driver.driver.FindElement(By.XPath("//td[text()='" + language + "']/following::td[2]/descendant::i[@class=\"remove icon\"]"));
 
         public void DeleteLanguage(string language)
         {
-            Thread.Sleep(1000);
+            Driver.driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             var removeLanguage = RemoveLanguage(language);
             removeLanguage.Click();
         }
 
         public string CheckDeletedLanguage(string language)
         {
-            Thread.Sleep(1000);
+            Wait.WaitToBeVisible(Driver.driver, "XPath", "//div[@class=\"ns-box-inner\"]", 3);
             string successMessage = successNotification.Text;
             return successMessage;
-            //Assert.That(successMessage.Contains(language + " has been deleted from your languages"), "Language was not deleted successfully");
+           
         }
 
 

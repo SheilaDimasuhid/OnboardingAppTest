@@ -78,7 +78,6 @@ namespace MarsQA_1.Feature
         [NUnit.Framework.DescriptionAttribute("Add a new Language on my Profile Page")]
         [NUnit.Framework.CategoryAttribute("tag1")]
         [NUnit.Framework.TestCaseAttribute("Bisaya", "Fluent", null)]
-        [NUnit.Framework.TestCaseAttribute("Hiligaynon", "Conversational", null)]
         public void AddANewLanguageOnMyProfilePage(string language, string level, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -122,6 +121,45 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Add another Language that already existed on my Profile Page")]
+        [NUnit.Framework.TestCaseAttribute("Bisaya", "Fluent", null)]
+        public void AddAnotherLanguageThatAlreadyExistedOnMyProfilePage(string language, string level, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("Language", language);
+            argumentsOfScenario.Add("Level", level);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add another Language that already existed on my Profile Page", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 16
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 17
+ testRunner.Given("I navigate to the Languages Section", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 18
+ testRunner.When(string.Format("I add an existing language as a new \'{0}\'", language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 19
+ testRunner.And(string.Format("I select the \'{0}\'", level), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 20
+ testRunner.And("I save the new language", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 21
+ testRunner.Then(string.Format("An error message should be displayed of the duplicate \'{0}\'", language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Update an existing Language on my Profile Page")]
         [NUnit.Framework.TestCaseAttribute("Bisaya", "Tagalog", "Conversational", null)]
         [NUnit.Framework.TestCaseAttribute("Hiligaynon", "Ilocano", "Basic", null)]
@@ -133,7 +171,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("New Language", newLanguage);
             argumentsOfScenario.Add("New Level", newLevel);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update an existing Language on my Profile Page", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 17
+#line 27
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -143,19 +181,19 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 18
+#line 28
  testRunner.Given("I navigate to the Languages Section", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 19
+#line 29
  testRunner.When(string.Format("I update an existing \'{0}\' to a \'{1}\'", language, newLanguage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 20
+#line 30
  testRunner.And(string.Format("I update the Level to a \'{0}\' given the current \'{1}\'", newLevel, language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 21
+#line 31
  testRunner.And(string.Format("I save the updated \'{0}\'", language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 22
+#line 32
  testRunner.Then(string.Format("The updated \'{0}\' should be updated successfully", newLanguage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -172,7 +210,7 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Language", language);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete an existing Language on my Profile Page", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 28
+#line 39
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -182,13 +220,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 29
+#line 40
  testRunner.Given("I navigate to the Languages Section", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 30
+#line 41
  testRunner.When(string.Format("I delete an existing \'{0}\'", language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 31
+#line 42
  testRunner.Then(string.Format("The existing \'{0}\' selected should be deleted successfully", language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

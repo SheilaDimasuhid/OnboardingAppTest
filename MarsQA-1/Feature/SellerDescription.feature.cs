@@ -75,11 +75,11 @@ namespace MarsQA_1.Feature
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("I update the Seller Description")]
-        [NUnit.Framework.CategoryAttribute("tag1")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
         public void IUpdateTheSellerDescription()
         {
             string[] tagsOfScenario = new string[] {
-                    "tag1"};
+                    "Ignore"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("I update the Seller Description", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6

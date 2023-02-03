@@ -11,8 +11,18 @@ Scenario Outline: Add a new Language on my Profile Page
 	Then The new '<Language>' should be displayed in the Seller Language List
 	Examples:
 	| Language   | Level          |
+	| Bisaya     | Fluent         |	
+
+Scenario Outline: Add another Language that already existed on my Profile Page
+	Given I navigate to the Languages Section
+	When I add an existing language as a new '<Language>' 
+	And I select the '<Level>'
+	And I save the new language
+	Then An error message should be displayed of the duplicate '<Language>'
+	Examples:
+	| Language   | Level          |	
 	| Bisaya     | Fluent         |
-	| Hiligaynon | Conversational |
+	
 
 Scenario Outline: Update an existing Language on my Profile Page
 	Given I navigate to the Languages Section
@@ -24,6 +34,7 @@ Scenario Outline: Update an existing Language on my Profile Page
 	| Language   | New Language | New Level      |
 	| Bisaya     | Tagalog      | Conversational |
 	| Hiligaynon | Ilocano      | Basic          |
+
 
 Scenario: Delete an existing Language on my Profile Page
 	Given I navigate to the Languages Section

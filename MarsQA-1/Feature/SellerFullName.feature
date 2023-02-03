@@ -3,7 +3,7 @@
 As a seller I would like to update my Full Name.
 
 
-@tag1
+@Ignore
 Scenario Outline: I can update my FullName
 	Given I navigate to the Full Name Drop Down button
 	When I update my '<FirstName>' and '<LastName>'

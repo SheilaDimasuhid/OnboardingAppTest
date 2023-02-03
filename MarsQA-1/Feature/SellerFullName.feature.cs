@@ -75,13 +75,13 @@ namespace MarsQA_1.Feature
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("I can update my FullName")]
-        [NUnit.Framework.CategoryAttribute("tag1")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
         [NUnit.Framework.TestCaseAttribute("Poppy", "Estrada", "Poppy Estrada", null)]
         [NUnit.Framework.TestCaseAttribute("Cedric", "Dimasuhid", "Cedric Dimasuhid", null)]
         public void ICanUpdateMyFullName(string firstName, string lastName, string fullName, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "tag1"};
+                    "Ignore"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));

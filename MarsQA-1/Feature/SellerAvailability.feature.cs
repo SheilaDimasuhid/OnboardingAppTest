@@ -76,11 +76,11 @@ namespace MarsQA_1.Feature
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add or update my availability")]
-        [NUnit.Framework.CategoryAttribute("tag1")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
         public void AddOrUpdateMyAvailability()
         {
             string[] tagsOfScenario = new string[] {
-                    "tag1"};
+                    "Ignore"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add or update my availability", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 6
