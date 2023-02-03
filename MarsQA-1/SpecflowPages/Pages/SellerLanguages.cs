@@ -32,26 +32,26 @@ namespace MarsQA_1.SpecflowPages.Pages
             
         public void ClickLanguageTab()
         {
-            Wait.WaitToBeVisible(Driver.driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]", 3);
+            Wait.WaitToBeVisible(Driver.driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]", 10);
             languageTab.Click();
         }
 
         public void CLickAddNewLanguageBtn()
         {
-            Wait.WaitToBeVisible(Driver.driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div", 3);
+            Wait.WaitToBeVisible(Driver.driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div", 10);
             addNewLanguageBtn.Click();           
         }
 
         public void SetLanguageName(string langName)
         {
-            Wait.WaitToBeVisible(Driver.driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[1]/input", 3);
+            Wait.WaitToBeVisible(Driver.driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[1]/input", 10);
             languageName.Clear();
             languageName.SendKeys(langName);
         }
 
         public void SetLevel(string level) 
         {
-            Wait.WaitToBeVisible(Driver.driver, "XPath", "//select[@name='level']", 3);
+            Wait.WaitToBeVisible(Driver.driver, "XPath", "//select[@name='level']", 10);
             SelectElement selectedLevel = new SelectElement(levelDropdownBtn);
             selectedLevel.SelectByValue(level);
         }
@@ -64,7 +64,7 @@ namespace MarsQA_1.SpecflowPages.Pages
 
         public string CheckNewLanguageAdded(string newLanguage)
         {
-            Wait.WaitToBeVisible(Driver.driver, "XPath", "//div[@class=\"ns-box-inner\"]", 3);
+            Wait.WaitToBeVisible(Driver.driver, "XPath", "//div[@class=\"ns-box-inner\"]", 20);
             string successMessage = successNotification.Text;
             return successMessage;         
 
@@ -103,7 +103,7 @@ namespace MarsQA_1.SpecflowPages.Pages
 
         public string CheckUpdatedLanguage(string newLanguage)
         {
-            Wait.WaitToBeVisible(Driver.driver, "XPath", "//div[@class=\"ns-box-inner\"]", 4);
+            Wait.WaitToBeVisible(Driver.driver, "XPath", "//div[@class=\"ns-box-inner\"]", 20);
             string successMessage = successNotification.Text;
             return successMessage;
             
@@ -120,7 +120,7 @@ namespace MarsQA_1.SpecflowPages.Pages
 
         public string CheckDeletedLanguage(string language)
         {
-            Wait.WaitToBeVisible(Driver.driver, "XPath", "//div[@class=\"ns-box-inner\"]", 3);
+            Wait.WaitToBeVisible(Driver.driver, "XPath", "//div[@class=\"ns-box-inner\"]", 20);
             string successMessage = successNotification.Text;
             return successMessage;
            

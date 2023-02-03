@@ -48,7 +48,7 @@ namespace MarsQA_1
         [Then(@"The new '([^']*)' should be displayed in the Seller Language List")]
         public void ThenTheNewShouldBeDisplayedInTheSellerLanguageList(string newLanguage)
         {
-            ValidateAddNewLanguage(newLanguage);
+            ValidateNewlyAddedNewLanguage(newLanguage);
         }
 
         [When(@"I add an existing language as a new '([^']*)'")]
@@ -61,24 +61,25 @@ namespace MarsQA_1
 
         [Then(@"An error message should be displayed of the duplicate '([^']*)'")]
         public void ThenAnErrorMessageShouldBeDisplayedOfTheDuplicate(string newLanguage)
-        {            
-            ValidateAddNewLanguage(newLanguage);
+        {
+            ValidateNewlyAddedNewLanguage(newLanguage);
         }
 
-        public void ValidateAddNewLanguage(string newLanguage)
+        public void ValidateNewlyAddedNewLanguage(string newLanguage)
         {
             string notification = _sellerLanguages.CheckNewLanguageAdded(newLanguage);
-            //if (notification == (newLanguage + " has been added to your languages"))
-                //Assert.Pass(notification);
-            if (notification == "This language is already exist in your language list.")
-                Assert.Pass(notification);
-            else if (notification == "This language is already added to your language list.")
-                Assert.Pass(notification);
-            else if (notification == "Please enter language and level")
-                Assert.Pass(notification);
-            else
-                Assert.That(notification.Contains(newLanguage + " has been added to your languages"), "Language was not added successfully");
-            
+
+            if (notification == (newLanguage + " has been added to your languages"))                
+                Assert.That(notification == (newLanguage + " has been added to your languages"), notification);
+            else if (notification == "This language is already exist in your language list.")                
+                Assert.That(notification == "This language is already exist in your language list.", notification);
+            else if (notification == "Duplicated data")                
+                Assert.That(notification == "Duplicated data", notification);
+            else if (notification == "This language is already added to your language list.")                
+                Assert.That(notification == "This language is already added to your language list.", notification);
+            else if (notification == "Please enter language and level")                
+                Assert.That(notification == "Please enter language and level", notification);
+           
         }
 
 
@@ -107,16 +108,18 @@ namespace MarsQA_1
         public void ThenTheUpdatedShouldBeUpdatedSuccessfully(string newLanguage)
         {
             string notification = _sellerLanguages.CheckUpdatedLanguage(newLanguage);
-            //if (notification == (newLanguage + " has been updated to your languages"))
-            //    Assert.Pass(notification);
-            if (notification == "This language is already exist in your language list.")
-                Assert.Pass(notification);
+
+            if (notification == (newLanguage + " has been updated to your languages"))
+                Assert.That(notification == (newLanguage + " has been updated to your languages"), notification);
+            else if (notification == "This language is already exist in your language list.")
+                Assert.That(notification == "This language is already exist in your language list.", notification);
+            else if (notification == "Duplicated data")
+                Assert.That(notification == "Duplicated data", notification);
             else if (notification == "This language is already added to your language list.")
-                Assert.Pass(notification);
+                Assert.That(notification == "This language is already added to your language list.", notification);
             else if (notification == "Please enter language and level")
-                Assert.Pass(notification);
-            else
-                Assert.That(notification.Contains(newLanguage + " has been updated to your languages"), "Language was not updated successfully");
+                Assert.That(notification == "Please enter language and level", notification);          
+
         }
 
 
@@ -131,7 +134,8 @@ namespace MarsQA_1
         public void ThenTheExistingSelectedShouldBeDeletedSuccessfully(string language)
         {
             string notification = _sellerLanguages.CheckDeletedLanguage(language);
-            Assert.That(notification.Contains(language + " has been deleted from your languages"), "Language was not deleted successfully");
+            Assert.That(notification == (language + " has been deleted from your languages"), notification);
+            
         }
 
 

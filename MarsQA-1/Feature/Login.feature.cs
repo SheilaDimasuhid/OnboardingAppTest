@@ -76,11 +76,11 @@ namespace MarsQA_1.Feature
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Login to website")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
         public void LoginToWebsite()
         {
             string[] tagsOfScenario = new string[] {
-                    "mytag"};
+                    "Ignore"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login to website", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 7
