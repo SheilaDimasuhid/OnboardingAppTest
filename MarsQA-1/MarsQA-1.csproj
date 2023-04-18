@@ -172,6 +172,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SpecflowPages\Helpers\CommonMethods.cs" />
+    <Compile Include="SpecflowPages\Helpers\ExcelLibHelpers.cs" />
     <Compile Include="StepDefinitions\Login.cs" />
     <Compile Include="StepDefinitions\SellerFullNameStepDefinitions.cs" />
     <Compile Include="StepDefinitions\SellerAvailabilityStepDefinitions.cs" />
@@ -203,6 +205,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="SpecflowTests\" />
     <Folder Include="TestReports\Screenshots\" />
     <Folder Include="TestReports\Test_files\" />
   </ItemGroup>

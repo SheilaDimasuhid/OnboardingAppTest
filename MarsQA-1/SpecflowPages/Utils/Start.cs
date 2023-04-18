@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using TechTalk.SpecFlow;
 using static MarsQA_1.Helpers.ConstantHelpers;
+using static MarsQA_1.Helpers.CommonMethods;
 
 namespace MarsQA_1.Utils
 {
@@ -20,16 +21,18 @@ namespace MarsQA_1.Utils
         {
             //launch the browser
             Initialize();
-            
+
+            ExcelLibHelper.PopulateInCollection(@"C:\Users\Sheila\source\repos\OnboardingAppTest\MarsQA-1\SpecflowTests\Data\Mars.xlsx", "Credentials");
+
             //call the SignIn class
             SignIn.SigninStep();
-        }
-
+        }               
 
         [AfterScenario]
         public void TearDown()
-        {            
-            Close();                    
+        {
+            
+            Close();                  
            
         }        
        
